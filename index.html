@@ -1,660 +1,357 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo</title>
 
-    <title>KnowMore - Knowledge Website</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-    <style>
+body{
+  background:#0f1020;
+  color:white;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+.container{
+  display:flex;
+  flex-direction:row-reverse;
+  min-height:100vh;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
-        }
+.demo{
+  width:70%;
+  background:#111;
+  position:relative;
+}
 
-        /* NAVBAR */
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+}
 
-        header {
-            background: white;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px #00000012;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#181a35,#0b0c18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-y:auto;
+}
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #2563eb;
-        }
+.box{
+  width:100%;
+  background:rgba(10,10,10,.88);
+  border:1px solid #1E90FF;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(30,144,255,.28);
+}
 
-        nav a {
-            text-decoration: none;
-            color: #444;
-            margin-left: 25px;
-            font-size: 15px;
-        }
+.badge{
+  display:inline-block;
+  background:#1E90FF;
+  color:#fff;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
+}
 
-        nav a:hover {
-            color: #2563eb;
-        }
+h1{
+  font-size:34px;
+  color:#1E90FF;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
 
-        /* HERO */
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#eee;
+}
 
-        .hero {
-            background: #2563eb;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
+.features{
+  display:grid;
+  gap:12px;
+  margin:22px 0;
+}
 
-        .hero h1 {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
+.feature{
+  background:linear-gradient(90deg,#1b1b1b,#0d1c30);
+  border:1px solid rgba(66,153,225,.55);
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+}
 
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.7;
-            font-size: 17px;
-            color: #dbeafe;
-        }
+.feature span{
+  color:#1E90FF;
+}
 
-        .search {
-            margin: 30px auto 0;
-            max-width: 550px;
-            display: flex;
-        }
+/* Signup Button */
+.signup-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 16px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:800;
+  border:1px solid #1ebe5d;
+  transition:.3s;
+}
 
-        .search input {
-            flex: 1;
-            padding: 16px;
-            border: none;
-            outline: none;
-            border-radius: 5px 0 0 5px;
-            font-size: 15px;
-        }
+.signup-btn:hover{
+  background:#1ebe5d;
+  transform:scale(1.03);
+}
 
-        .search button {
-            border: none;
-            padding: 0 25px;
-            background: #111827;
-            color: white;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-        }
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
+}
 
-        /* CONTAINER */
+.website-row a{
+  text-decoration:none;
+}
 
-        .container {
-            width: 85%;
-            max-width: 1100px;
-            margin: 60px auto;
-        }
+.website{
+  color:#25D366;
+}
 
-        .container h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 35px;
-        }
+.whatsapp-small{
+  color:#1E90FF;
+}
 
-        /* CATEGORIES */
+.cta{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(37,211,102,.35);
+  transition:.3s;
+}
 
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
+.cta:hover{
+  transform:scale(1.03);
+  background:#1ebe5d;
+}
 
-        .category {
-            background: white;
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 3px 12px #0000000d;
-            transition: 0.3s;
-        }
+/* Floating Signup Button */
+.floating-signup{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:#1E90FF;
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:900;
+  border:3px solid #fff;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(30,144,255,0.6);
+  transition:.3s;
+  text-decoration:none;
+  display:inline-block;
+}
 
-        .category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px #00000015;
-        }
+.floating-signup:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:#0B6EDB;
+  box-shadow:0 12px 25px rgba(30,144,255,0.8);
+}
 
-        .category .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
+.trust{
+  margin-top:16px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.5;
+}
 
-        .category h3 {
-            margin-bottom: 10px;
-        }
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#aaa;
+  line-height:1.5;
+}
 
-        .category p {
-            color: #777;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+@media(max-width:768px){
+  .container{
+    flex-direction:column-reverse;
+  }
 
-        /* ARTICLES */
+  .demo,
+  .right{
+    width:100%;
+  }
 
-        .articles {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
+  iframe{
+    height:500px;
+  }
 
-        .article {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 12px #0000000d;
-        }
+  .right{
+    padding:20px;
+  }
+}
 
-        .article-top {
-            height: 150px;
-            background: #dbeafe;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 55px;
-        }
+@media(max-width:480px){
+  h1{
+    font-size:28px;
+  }
 
-        .article-content {
-            padding: 22px;
-        }
+  .sub{
+    font-size:16px;
+  }
 
-        .article-content small {
-            color: #2563eb;
-            font-weight: bold;
-        }
+  .feature{
+    font-size:16px;
+    padding:12px;
+  }
 
-        .article-content h3 {
-            margin: 10px 0;
-            font-size: 21px;
-        }
+  .signup-btn{
+    font-size:14px;
+    padding:8px 13px;
+  }
 
-        .article-content p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 14px;
-        }
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
 
-        .read {
-            display: inline-block;
-            margin-top: 15px;
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
+  .website-row{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+</style>
 
-        /* FACT */
-
-        .fact {
-            background: white;
-            padding: 45px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 3px 12px #0000000d;
-        }
-
-        .fact span {
-            font-size: 40px;
-        }
-
-        .fact h2 {
-            margin: 15px 0;
-        }
-
-        .fact p {
-            color: #666;
-            line-height: 1.7;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #111827;
-            color: #aaa;
-            text-align: center;
-            padding: 30px;
-        }
-
-        footer strong {
-            color: white;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-
-            nav {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .articles {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .categories {
-                grid-template-columns: 1fr;
-            }
-
-            .search input {
-                width: 100%;
-            }
-        }
-
-    </style>
 </head>
 
 <body>
 
-
-    <!-- NAVBAR -->
-
-    <header>
-
-        <div class="logo">
-            KnowMore
-        </div>
-
-        <nav>
-            <a href="#">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#articles">Articles</a>
-            <a href="#facts">Facts</a>
-        </nav>
-
-    </header>
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <h1>
-            Learn Something New Every Day
-        </h1>
-
-        <p>
-            Explore interesting knowledge, useful information,
-            amazing facts and simple explanations about the world.
-        </p>
-
-        <div class="search">
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search knowledge..."
-            >
-
-            <button onclick="searchArticles()">
-                Search
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- CATEGORIES -->
-
-    <section class="container" id="categories">
-
-        <h2>
-            Explore Categories
-        </h2>
-
-        <div class="categories">
-
-            <div class="category">
-
-                <div class="icon">🔬</div>
-
-                <h3>Science</h3>
-
-                <p>
-                    Discover how nature, space and
-                    the universe work.
-                </p>
-
-            </div>
-
-
-            <div class="category">
-
-                <div class="icon">💻</div>
-
-                <h3>Technology</h3>
-
-                <p>
-                    Learn about computers, AI,
-                    inventions and technology.
-                </p>
-
-            </div>
-
-
-            <div class="category">
-
-                <div class="icon">🌍</div>
-
-                <h3>History</h3>
-
-                <p>
-                    Explore important events,
-                    people and civilizations.
-                </p>
-
-            </div>
-
-
-            <div class="category">
-
-                <div class="icon">📚</div>
-
-                <h3>Education</h3>
-
-                <p>
-                    Improve your skills and discover
-                    useful learning techniques.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ARTICLES -->
-
-    <section class="container" id="articles">
-
-        <h2>
-            Popular Articles
-        </h2>
-
-        <div class="articles">
-
-
-            <article class="article">
-
-                <div class="article-top">
-                    🌌
-                </div>
-
-                <div class="article-content">
-
-                    <small>SCIENCE</small>
-
-                    <h3>
-                        How Does the Universe Work?
-                    </h3>
-
-                    <p>
-                        Learn some basic ideas about
-                        galaxies, stars, planets and
-                        the enormous universe around us.
-                    </p>
-
-                    <a href="#" class="read">
-                        Read Article →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="article">
-
-                <div class="article-top">
-                    🤖
-                </div>
-
-                <div class="article-content">
-
-                    <small>TECHNOLOGY</small>
-
-                    <h3>
-                        What Is Artificial Intelligence?
-                    </h3>
-
-                    <p>
-                        Understand AI in simple words
-                        and learn how intelligent systems
-                        are changing our world.
-                    </p>
-
-                    <a href="#" class="read">
-                        Read Article →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="article">
-
-                <div class="article-top">
-                    🏛️
-                </div>
-
-                <div class="article-content">
-
-                    <small>HISTORY</small>
-
-                    <h3>
-                        Why Is History Important?
-                    </h3>
-
-                    <p>
-                        Understanding the past helps
-                        us understand how societies
-                        and the modern world developed.
-                    </p>
-
-                    <a href="#" class="read">
-                        Read Article →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="article">
-
-                <div class="article-top">
-                    🧠
-                </div>
-
-                <div class="article-content">
-
-                    <small>EDUCATION</small>
-
-                    <h3>
-                        How to Learn Faster
-                    </h3>
-
-                    <p>
-                        Simple learning techniques can
-                        help you remember information
-                        and study more effectively.
-                    </p>
-
-                    <a href="#" class="read">
-                        Read Article →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="article">
-
-                <div class="article-top">
-                    🌱
-                </div>
-
-                <div class="article-content">
-
-                    <small>NATURE</small>
-
-                    <h3>
-                        Amazing Facts About Plants
-                    </h3>
-
-                    <p>
-                        Plants are more fascinating than
-                        they appear. Discover some
-                        surprising facts about them.
-                    </p>
-
-                    <a href="#" class="read">
-                        Read Article →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="article">
-
-                <div class="article-top">
-                    🧩
-                </div>
-
-                <div class="article-content">
-
-                    <small>GENERAL KNOWLEDGE</small>
-
-                    <h3>
-                        Things Everyone Should Know
-                    </h3>
-
-                    <p>
-                        Interesting facts and useful
-                        knowledge that can make you
-                        more informed about the world.
-                    </p>
-
-                    <a href="#" class="read">
-                        Read Article →
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- FACT OF THE DAY -->
-
-    <section class="container" id="facts">
-
-        <div class="fact">
-
-            <span>💡</span>
-
-            <h2>
-                Fact of the Day
-            </h2>
-
-            <p id="factText">
-                Honey never spoils. Archaeologists have
-                found edible honey in ancient Egyptian
-                tombs that was thousands of years old.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <strong>KnowMore</strong>
-
-        <p>
-            Learn. Explore. Understand.
-        </p>
-
-        <br>
-
-        © 2026 KnowMore. All Rights Reserved.
-
-    </footer>
-
-
-    <script>
-
-        const articles = document.querySelectorAll(".article");
-
-        function searchArticles() {
-
-            const search =
-                document
-                .getElementById("searchInput")
-                .value
-                .toLowerCase();
-
-            articles.forEach(article => {
-
-                const text =
-                    article.innerText.toLowerCase();
-
-                if (text.includes(search)) {
-                    article.style.display = "block";
-                } else {
-                    article.style.display = "none";
-                }
-
-            });
-
-        }
-
-    </script>
+<div class="container">
+
+  <div class="demo">
+    <a href="https://www.winlaxmi.com/" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
+    <iframe src="https://www.winlaxmi.com/"></iframe>
+  </div>
+
+  <div class="right">
+    <div class="box">
+
+```
+  <div class="badge">AUTO WEBSITE</div>
+
+  <h1>Get Your ID Now</h1>
+
+  <p class="sub">
+    Fast auto website service with easy deposit support.
+    New users can start quickly through WhatsApp.
+  </p>
+
+  <div class="features">www.diamond247.com
+
+    <div class="feature">
+      Minimum Deposit: <span>₹100 Only</span>
+    </div>
+
+    <div class="feature">
+      Welcome Bonus: <span>10%</span>
+    </div>
+
+    <div class="feature">
+      Auto Website Support:
+      <a
+        class="signup-btn"
+        href="https://www.winlaxmi.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click on Signup
+      </a>
+    </div>
+
+    <div class="feature">
+      Quick Help:
+      <span>Deposit &amp; Withdrawal Support</span>
+    </div>
+
+  </div>
+
+  <div class="website-row">
+
+    <a
+      class="website"
+      href="https://www.winlaxmi.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🌐 www.diamond247.com
+    </a>
+
+    <a
+      class="whatsapp-small"
+      href="https://wa.me/+918930637089"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+  <a
+    class="cta"
+    href="https://wa.me/+918930637089?text=Hello%20I%20want%20new%20manual%20ID"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📲 WhatsApp Now
+  </a>
+
+  <p class="trust">
+    ✅ Trusted Manual Support<br>
+    ✅ Simple Process<br>
+    ✅ Fast Response
+  </p>
+
+  <div class="footer">
+    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+  </div>
+
+</div>
+```
+
+  </div>
+
+</div>
 
 </body>
-
 </html>
-```
